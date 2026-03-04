@@ -29,14 +29,18 @@ for item in df['Pclass']:
 Pclass = ['头等舱', '二等舱', '三等舱']
 people = [people1, people2, people3]
 survived = [survived1, survived2, survived3]
-# 获取每个柱子的坐标
-x = np.array(len(Pclass))
 # 设置字体为 SimHei (黑体)，Windows 通常自带
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.bar(Pclass, people,0.4, color = 'skyblue')
 plt.bar(Pclass, survived,0.4, color = 'blue', alpha = 0.5)
 plt.ylabel('人数')
 plt.title('泰坦尼克号生还人数和所处船舱等级柱状图对比')
-
 plt.show()
+
+survived = survived1 + survived2 + survived3
+people = people1 + people2 + people3
+plt.pie([people, survived], labels=['死亡','存活'])
+plt.title('存活率对比')
+plt.show()
+
 print("这个图很清楚的展示了存活人数随着船舱等级显著上升")
